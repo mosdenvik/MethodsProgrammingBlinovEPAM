@@ -36,11 +36,11 @@ public class BankMainApp {
         bank.addClientToList(client10);
 
         cashier.toServeClient(client1, Operation.WITHDRAW, 60000);
-        bankDepository.checkBankDepository();
+        //bankDepository.checkBankDepository();
         System.out.println("----------------------------");
         cashier.toServeClient(client2, Operation.TRANSFER, 200000);
         System.out.println("----------------------------");
-//        cashier.toServeClient(client3, Operation.DEPOSIT, 5000);
+        cashier.toServeClient(client3, Operation.DEPOSIT, 11000);
 //        System.out.println("----------------------------");
 //        cashier.toServeClient(client4, Operation.WITHDRAW, 200000);
 //        System.out.println("----------------------------");
@@ -56,16 +56,14 @@ public class BankMainApp {
 //        System.out.println("----------------------------");
 //        cashier.toServeClient(client10, Operation.WITHDRAW, 200000);
 //        System.out.println("----------------------------");
-        System.out.println(cashierThread.isAlive());
-        bankDepository.checkBankDepository();
-        System.out.println(Thread.currentThread().getName());
+
+        System.out.println(bankDepository);
+
 
         try {
             cashierThread.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
     }
 }

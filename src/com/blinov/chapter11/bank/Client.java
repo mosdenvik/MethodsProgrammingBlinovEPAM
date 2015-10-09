@@ -31,21 +31,21 @@ public class Client {
 
     public void withdrawMoney(Account account, int amount) {
         System.out.println("Client " + getName() + " withdraws money: " + amount);
-        System.out.println("Accoun before transaction: " + account);
+        System.out.println(getName() + " account before transaction: " + account);
         if (account.getBalance() < amount) {
             System.err.println("No enough money at:" + account.toString());
         }
         account.withdrawFromClientAccount(amount);
-        System.out.println("Accoun after transaction: " + account);
+        System.out.println(getName() + " account after transaction: " + account);
         Cashier.outcomingFromCashbox(amount);
     }
 
     public void depositMoney(Account account, int amount) {
         System.out.println("Client " + getName() + " deposits money: " + amount);
-        System.out.println("Accoun before transaction: " + account);
+        System.out.println(getName() + " account before transaction: " + account);
         account.depositToClientAccount(amount);
         Cashier.incomingToCashbox(amount);
-        System.out.println("Accoun after transaction: " + account);
+        System.out.println(getName() + " account after transaction: " + account);
     }
 
     public void transferMoney(int amount) {

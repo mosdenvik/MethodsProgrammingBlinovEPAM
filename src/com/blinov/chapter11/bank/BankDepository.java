@@ -4,9 +4,11 @@ package com.blinov.chapter11.bank;
  * Created by mosdenvik on 04.10.2015.
  */
 public class BankDepository {
-    private static volatile int bankDeposit;
+    private int bankDeposit;
 
 
+    public BankDepository(){
+    }
     public BankDepository(int bankDeposit) {
         this.bankDeposit = bankDeposit;
     }
@@ -19,15 +21,22 @@ public class BankDepository {
         return bankDeposit;
     }
 
-    public static void withdrawFromDepository(int amount){
+    public void withdrawFromDepository(int amount){
         bankDeposit -= amount;
     }
 
-    public static void depositToDepository(int amount){
+    public void depositToDepository(int amount){
         bankDeposit += amount;
     }
 
     public void checkBankDepository(){
         System.out.println("***Current balance at the bank depository: " + bankDeposit);
+    }
+
+    @Override
+    public String toString() {
+        return "BankDepository{" +
+                "bankDeposit: " + bankDeposit +
+                '}';
     }
 }
